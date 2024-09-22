@@ -1,0 +1,651 @@
+[debug] [2024-09-22T07:16:55.335Z] ----------------------------------------------------------------------
+[debug] [2024-09-22T07:16:55.340Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\USER\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions:api
+[debug] [2024-09-22T07:16:55.341Z] CLI Version:   13.18.0
+[debug] [2024-09-22T07:16:55.341Z] Platform:      win32
+[debug] [2024-09-22T07:16:55.341Z] Node Version:  v20.13.1
+[debug] [2024-09-22T07:16:55.341Z] Time:          Sun Sep 22 2024 14:16:55 GMT+0700 (Western Indonesia Time)
+[debug] [2024-09-22T07:16:55.342Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-09-22T07:16:55.498Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-09-22T07:16:55.499Z] > authorizing via signed-in user (mr.azkaov@gmail.com)
+[debug] [2024-09-22T07:16:55.499Z] [iam] checking project oca-project-digistar for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2024-09-22T07:16:55.505Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/oca-project-digistar:testIamPermissions [none]
+[debug] [2024-09-22T07:16:55.505Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/oca-project-digistar:testIamPermissions x-goog-quota-user=projects/oca-project-digistar
+[debug] [2024-09-22T07:16:55.506Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/oca-project-digistar:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2024-09-22T07:16:55.885Z] *** [apiv2] error from fetch(https://cloudresourcemanager.googleapis.com/v1/projects/oca-project-digistar:testIamPermissions, {"headers":{},"method":"POST","body":"{\"permissions\":[\"cloudfunctions.functions.create\",\"cloudfunctions.functions.delete\",\"cloudfunctions.functions.get\",\"cloudfunctions.functions.list\",\"cloudfunctions.functions.update\",\"cloudfunctions.operations.get\",\"firebase.projects.get\"]}"}): FetchError: request to https://cloudresourcemanager.googleapis.com/v1/projects/oca-project-digistar:testIamPermissions failed, reason: getaddrinfo ENOTFOUND cloudresourcemanager.googleapis.com
+[debug] [2024-09-22T07:16:55.886Z] [iam] error while checking permissions, command may fail: FirebaseError: Failed to make request to https://cloudresourcemanager.googleapis.com/v1/projects/oca-project-digistar:testIamPermissions
+[debug] [2024-09-22T07:16:55.887Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/oca-project-digistar/serviceAccounts/oca-project-digistar@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2024-09-22T07:16:55.887Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/oca-project-digistar/serviceAccounts/oca-project-digistar@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2024-09-22T07:16:57.424Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/oca-project-digistar/serviceAccounts/oca-project-digistar@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2024-09-22T07:16:57.424Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/oca-project-digistar/serviceAccounts/oca-project-digistar@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'oca-project-digistar'...
+[info] 
+[info] i  deploying functions 
+[debug] [2024-09-22T07:16:57.437Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/oca-project-digistar [none]
+[debug] [2024-09-22T07:16:58.057Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/oca-project-digistar 200
+[debug] [2024-09-22T07:16:58.057Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/oca-project-digistar {"projectId":"oca-project-digistar","projectNumber":"49166938496","displayName":"oca-project-digistar","name":"projects/oca-project-digistar","resources":{"hostingSite":"oca-project-digistar"},"state":"ACTIVE","etag":"1_3e691dc4-c8d6-4d18-89f5-1446df18aedb"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2024-09-22T07:16:58.064Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/cloudfunctions.googleapis.com [none]
+[debug] [2024-09-22T07:16:58.064Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/oca-project-digistar
+[debug] [2024-09-22T07:16:58.066Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/runtimeconfig.googleapis.com [none]
+[debug] [2024-09-22T07:16:58.067Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/oca-project-digistar
+[debug] [2024-09-22T07:16:58.069Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/cloudbuild.googleapis.com [none]
+[debug] [2024-09-22T07:16:58.069Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/cloudbuild.googleapis.com x-goog-quota-user=projects/oca-project-digistar
+[debug] [2024-09-22T07:16:58.071Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/artifactregistry.googleapis.com [none]
+[debug] [2024-09-22T07:16:58.071Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/artifactregistry.googleapis.com x-goog-quota-user=projects/oca-project-digistar
+[debug] [2024-09-22T07:17:00.126Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/runtimeconfig.googleapis.com 200
+[debug] [2024-09-22T07:17:00.126Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2024-09-22T07:17:00.128Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/cloudbuild.googleapis.com 200
+[debug] [2024-09-22T07:17:00.128Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/cloudbuild.googleapis.com [omitted]
+[info] +  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2024-09-22T07:17:00.134Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/artifactregistry.googleapis.com 200
+[debug] [2024-09-22T07:17:00.134Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/artifactregistry.googleapis.com [omitted]
+[info] +  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2024-09-22T07:17:00.138Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/cloudfunctions.googleapis.com 200
+[debug] [2024-09-22T07:17:00.138Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/cloudfunctions.googleapis.com [omitted]
+[info] +  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2024-09-22T07:17:00.139Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/oca-project-digistar/adminSdkConfig [none]
+[debug] [2024-09-22T07:17:00.639Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/oca-project-digistar/adminSdkConfig 200
+[debug] [2024-09-22T07:17:00.639Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/oca-project-digistar/adminSdkConfig {"projectId":"oca-project-digistar","storageBucket":"oca-project-digistar.appspot.com"}
+[debug] [2024-09-22T07:17:00.640Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/oca-project-digistar/configs [none]
+[debug] [2024-09-22T07:17:01.141Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/oca-project-digistar/configs 200
+[debug] [2024-09-22T07:17:01.141Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/oca-project-digistar/configs {}
+[debug] [2024-09-22T07:17:01.144Z] Validating nodejs source
+[debug] [2024-09-22T07:17:03.310Z] > [functions] package.json contents: {
+  "name": "oca-backend",
+  "version": "1.0.0",
+  "description": "This is a repository for OCA Team 36 backend APIs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "deploy": "firebase deploy --only functions:api"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@sendgrid/mail": "^8.1.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "firebase": "^10.13.2",
+    "firebase-admin": "^12.5.0",
+    "firebase-functions": "^6.0.1",
+    "jest": "^29.7.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^3.1.4",
+    "sequelize": "^6.37.3",
+    "twilio": "^5.3.1"
+  },
+  "engines": {
+    "node": "18"
+  }
+}
+[debug] [2024-09-22T07:17:03.310Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2024-09-22T07:17:03.313Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-09-22T07:17:03.326Z] Found firebase-functions binary at 'D:\Koleyah\SMT7\digistar\oca backend\node_modules\.bin\firebase-functions'
+[info] Serving at port 8517
+
+[error] node:events:497
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::8517
+    at Server.setupListenHandle [as _listen2] (node:net:1898:16)
+    at listenInCluster (node:net:1946:12)
+    at Server.listen (node:net:2044:7)
+    at Function.listen (D:\Koleyah\SMT7\digistar\oca backend\node_modules\express\lib\application.js:635:24)
+    at Object.<anonymous> (D:\Koleyah\SMT7\digistar\oca backend\index.js:22:5)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10)
+    at Module.load (node:internal/modules/cjs/loader:1208:32)
+    at Module._load (node:internal/modules/cjs/loader:1024:12)
+    at Module.require (node:internal/modules/cjs/loader:1233:19)
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (node:net:1925:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '::',
+  port: 8517
+}
+
+Node.js v20.13.1
+
+[debug] [2024-09-22T07:17:05.623Z] Failed to call quitquitquit. This often means the server failed to start request to http://localhost:8517/__/quitquitquit failed, reason:  {"message":"request to http://localhost:8517/__/quitquitquit failed, reason: ","type":"system","errno":"ECONNREFUSED","code":"ECONNREFUSED"}
+[debug] [2024-09-22T07:17:06.421Z] FetchError: request to http://127.0.0.1:8517/__/functions.yaml failed, reason: read ECONNRESET
+    at ClientRequest.<anonymous> (C:\Users\USER\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\node-fetch\lib\index.js:1501:11)
+    at ClientRequest.emit (node:events:519:28)
+    at ClientRequest.emit (node:domain:488:12)
+    at Socket.socketErrorListener (node:_http_client:500:9)
+    at Socket.emit (node:events:519:28)
+    at Socket.emit (node:domain:488:12)
+    at emitErrorNT (node:internal/streams/destroy:169:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:128:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2024-09-22T07:18:49.496Z] ----------------------------------------------------------------------
+[debug] [2024-09-22T07:18:49.501Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\USER\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions:api
+[debug] [2024-09-22T07:18:49.501Z] CLI Version:   13.18.0
+[debug] [2024-09-22T07:18:49.502Z] Platform:      win32
+[debug] [2024-09-22T07:18:49.502Z] Node Version:  v20.13.1
+[debug] [2024-09-22T07:18:49.502Z] Time:          Sun Sep 22 2024 14:18:49 GMT+0700 (Western Indonesia Time)
+[debug] [2024-09-22T07:18:49.502Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-09-22T07:18:49.629Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-09-22T07:18:49.630Z] > authorizing via signed-in user (mr.azkaov@gmail.com)
+[debug] [2024-09-22T07:18:49.630Z] [iam] checking project oca-project-digistar for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2024-09-22T07:18:49.634Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/oca-project-digistar:testIamPermissions [none]
+[debug] [2024-09-22T07:18:49.634Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/oca-project-digistar:testIamPermissions x-goog-quota-user=projects/oca-project-digistar
+[debug] [2024-09-22T07:18:49.634Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/oca-project-digistar:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2024-09-22T07:18:50.892Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/oca-project-digistar:testIamPermissions 200
+[debug] [2024-09-22T07:18:50.893Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/oca-project-digistar:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2024-09-22T07:18:50.894Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/oca-project-digistar/serviceAccounts/oca-project-digistar@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2024-09-22T07:18:50.895Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/oca-project-digistar/serviceAccounts/oca-project-digistar@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2024-09-22T07:18:52.509Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/oca-project-digistar/serviceAccounts/oca-project-digistar@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2024-09-22T07:18:52.509Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/oca-project-digistar/serviceAccounts/oca-project-digistar@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'oca-project-digistar'...
+[info] 
+[info] i  deploying functions 
+[debug] [2024-09-22T07:18:52.517Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/oca-project-digistar [none]
+[debug] [2024-09-22T07:18:52.938Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/oca-project-digistar 200
+[debug] [2024-09-22T07:18:52.939Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/oca-project-digistar {"projectId":"oca-project-digistar","projectNumber":"49166938496","displayName":"oca-project-digistar","name":"projects/oca-project-digistar","resources":{"hostingSite":"oca-project-digistar"},"state":"ACTIVE","etag":"1_3e691dc4-c8d6-4d18-89f5-1446df18aedb"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2024-09-22T07:18:52.944Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/cloudfunctions.googleapis.com [none]
+[debug] [2024-09-22T07:18:52.945Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/oca-project-digistar
+[debug] [2024-09-22T07:18:52.947Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/runtimeconfig.googleapis.com [none]
+[debug] [2024-09-22T07:18:52.947Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/oca-project-digistar
+[debug] [2024-09-22T07:18:52.949Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/cloudbuild.googleapis.com [none]
+[debug] [2024-09-22T07:18:52.949Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/cloudbuild.googleapis.com x-goog-quota-user=projects/oca-project-digistar
+[debug] [2024-09-22T07:18:52.951Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/artifactregistry.googleapis.com [none]
+[debug] [2024-09-22T07:18:52.951Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/artifactregistry.googleapis.com x-goog-quota-user=projects/oca-project-digistar
+[debug] [2024-09-22T07:18:54.375Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/runtimeconfig.googleapis.com 200
+[debug] [2024-09-22T07:18:54.376Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2024-09-22T07:18:54.383Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/cloudbuild.googleapis.com 200
+[debug] [2024-09-22T07:18:54.383Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/cloudbuild.googleapis.com [omitted]
+[info] +  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2024-09-22T07:18:54.400Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/cloudfunctions.googleapis.com 200
+[debug] [2024-09-22T07:18:54.401Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/cloudfunctions.googleapis.com [omitted]
+[info] +  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2024-09-22T07:18:55.384Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/artifactregistry.googleapis.com 200
+[debug] [2024-09-22T07:18:55.385Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/artifactregistry.googleapis.com [omitted]
+[info] +  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2024-09-22T07:18:55.386Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/oca-project-digistar/adminSdkConfig [none]
+[debug] [2024-09-22T07:18:55.686Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/oca-project-digistar/adminSdkConfig 200
+[debug] [2024-09-22T07:18:55.686Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/oca-project-digistar/adminSdkConfig {"projectId":"oca-project-digistar","storageBucket":"oca-project-digistar.appspot.com"}
+[debug] [2024-09-22T07:18:55.687Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/oca-project-digistar/configs [none]
+[debug] [2024-09-22T07:18:56.301Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/oca-project-digistar/configs 200
+[debug] [2024-09-22T07:18:56.301Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/oca-project-digistar/configs {}
+[debug] [2024-09-22T07:18:56.305Z] Validating nodejs source
+[debug] [2024-09-22T07:18:58.273Z] > [functions] package.json contents: {
+  "name": "oca-backend",
+  "version": "1.0.0",
+  "description": "This is a repository for OCA Team 36 backend APIs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "deploy": "firebase deploy --only functions:api"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@sendgrid/mail": "^8.1.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "firebase": "^10.13.2",
+    "firebase-admin": "^12.5.0",
+    "firebase-functions": "^6.0.1",
+    "jest": "^29.7.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^3.1.4",
+    "sequelize": "^6.37.3",
+    "twilio": "^5.3.1"
+  },
+  "engines": {
+    "node": "18"
+  }
+}
+[debug] [2024-09-22T07:18:58.274Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2024-09-22T07:18:58.277Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-09-22T07:18:58.290Z] Found firebase-functions binary at 'D:\Koleyah\SMT7\digistar\oca backend\node_modules\.bin\firebase-functions'
+[info] Serving at port 8442
+
+[error] node:events:497
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::8442
+    at Server.setupListenHandle [as _listen2] (node:net:1898:16)
+    at listenInCluster (node:net:1946:12)
+    at Server.listen (node:net:2044:7)
+    at Function.listen (D:\Koleyah\SMT7\digistar\oca backend\node_modules\express\lib\application.js:635:24)
+    at Object.<anonymous> (D:\Koleyah\SMT7\digistar\oca backend\index.js:22:5)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10)
+    at Module.load (node:internal/modules/cjs/loader:1208:32)
+    at Module._load (node:internal/modules/cjs/loader:1024:12)
+    at Module.require (node:internal/modules/cjs/loader:1233:19)
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (node:net:1925:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '::',
+  port: 8442
+}
+
+Node.js v20.13.1
+
+[debug] [2024-09-22T07:19:00.134Z] Failed to call quitquitquit. This often means the server failed to start request to http://localhost:8442/__/quitquitquit failed, reason:  {"message":"request to http://localhost:8442/__/quitquitquit failed, reason: ","type":"system","errno":"ECONNREFUSED","code":"ECONNREFUSED"}
+[debug] [2024-09-22T07:19:00.469Z] FetchError: request to http://127.0.0.1:8442/__/functions.yaml failed, reason: read ECONNRESET
+    at ClientRequest.<anonymous> (C:\Users\USER\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\node-fetch\lib\index.js:1501:11)
+    at ClientRequest.emit (node:events:519:28)
+    at ClientRequest.emit (node:domain:488:12)
+    at Socket.socketErrorListener (node:_http_client:500:9)
+    at Socket.emit (node:events:519:28)
+    at Socket.emit (node:domain:488:12)
+    at emitErrorNT (node:internal/streams/destroy:169:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:128:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2024-09-22T07:19:43.673Z] ----------------------------------------------------------------------
+[debug] [2024-09-22T07:19:43.677Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\USER\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions:api
+[debug] [2024-09-22T07:19:43.678Z] CLI Version:   13.18.0
+[debug] [2024-09-22T07:19:43.678Z] Platform:      win32
+[debug] [2024-09-22T07:19:43.679Z] Node Version:  v20.13.1
+[debug] [2024-09-22T07:19:43.679Z] Time:          Sun Sep 22 2024 14:19:43 GMT+0700 (Western Indonesia Time)
+[debug] [2024-09-22T07:19:43.679Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-09-22T07:19:43.805Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-09-22T07:19:43.806Z] > authorizing via signed-in user (mr.azkaov@gmail.com)
+[debug] [2024-09-22T07:19:43.806Z] [iam] checking project oca-project-digistar for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2024-09-22T07:19:43.811Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/oca-project-digistar:testIamPermissions [none]
+[debug] [2024-09-22T07:19:43.811Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/oca-project-digistar:testIamPermissions x-goog-quota-user=projects/oca-project-digistar
+[debug] [2024-09-22T07:19:43.811Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/oca-project-digistar:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2024-09-22T07:19:44.238Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/oca-project-digistar:testIamPermissions 200
+[debug] [2024-09-22T07:19:44.238Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/oca-project-digistar:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2024-09-22T07:19:44.239Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/oca-project-digistar/serviceAccounts/oca-project-digistar@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2024-09-22T07:19:44.239Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/oca-project-digistar/serviceAccounts/oca-project-digistar@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2024-09-22T07:19:45.657Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/oca-project-digistar/serviceAccounts/oca-project-digistar@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2024-09-22T07:19:45.657Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/oca-project-digistar/serviceAccounts/oca-project-digistar@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'oca-project-digistar'...
+[info] 
+[info] i  deploying functions 
+[debug] [2024-09-22T07:19:45.665Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/oca-project-digistar [none]
+[debug] [2024-09-22T07:19:46.168Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/oca-project-digistar 200
+[debug] [2024-09-22T07:19:46.169Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/oca-project-digistar {"projectId":"oca-project-digistar","projectNumber":"49166938496","displayName":"oca-project-digistar","name":"projects/oca-project-digistar","resources":{"hostingSite":"oca-project-digistar"},"state":"ACTIVE","etag":"1_3e691dc4-c8d6-4d18-89f5-1446df18aedb"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2024-09-22T07:19:46.174Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/cloudfunctions.googleapis.com [none]
+[debug] [2024-09-22T07:19:46.174Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/oca-project-digistar
+[debug] [2024-09-22T07:19:46.176Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/runtimeconfig.googleapis.com [none]
+[debug] [2024-09-22T07:19:46.177Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/oca-project-digistar
+[debug] [2024-09-22T07:19:46.178Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/cloudbuild.googleapis.com [none]
+[debug] [2024-09-22T07:19:46.178Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/cloudbuild.googleapis.com x-goog-quota-user=projects/oca-project-digistar
+[debug] [2024-09-22T07:19:46.180Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/artifactregistry.googleapis.com [none]
+[debug] [2024-09-22T07:19:46.180Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/artifactregistry.googleapis.com x-goog-quota-user=projects/oca-project-digistar
+[debug] [2024-09-22T07:19:47.622Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/runtimeconfig.googleapis.com 200
+[debug] [2024-09-22T07:19:47.622Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2024-09-22T07:19:47.668Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/cloudbuild.googleapis.com 200
+[debug] [2024-09-22T07:19:47.668Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/cloudbuild.googleapis.com [omitted]
+[info] +  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2024-09-22T07:19:47.733Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/cloudfunctions.googleapis.com 200
+[debug] [2024-09-22T07:19:47.733Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/cloudfunctions.googleapis.com [omitted]
+[info] +  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2024-09-22T07:19:47.926Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/artifactregistry.googleapis.com 200
+[debug] [2024-09-22T07:19:47.926Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/artifactregistry.googleapis.com [omitted]
+[info] +  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2024-09-22T07:19:47.928Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/oca-project-digistar/adminSdkConfig [none]
+[debug] [2024-09-22T07:19:48.409Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/oca-project-digistar/adminSdkConfig 200
+[debug] [2024-09-22T07:19:48.409Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/oca-project-digistar/adminSdkConfig {"projectId":"oca-project-digistar","storageBucket":"oca-project-digistar.appspot.com"}
+[debug] [2024-09-22T07:19:48.410Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/oca-project-digistar/configs [none]
+[debug] [2024-09-22T07:19:48.965Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/oca-project-digistar/configs 200
+[debug] [2024-09-22T07:19:48.965Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/oca-project-digistar/configs {}
+[debug] [2024-09-22T07:19:48.969Z] Validating nodejs source
+[debug] [2024-09-22T07:19:50.808Z] > [functions] package.json contents: {
+  "name": "oca-backend",
+  "version": "1.0.0",
+  "description": "This is a repository for OCA Team 36 backend APIs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "deploy": "firebase deploy --only functions:api"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@sendgrid/mail": "^8.1.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "firebase": "^10.13.2",
+    "firebase-admin": "^12.5.0",
+    "firebase-functions": "^6.0.1",
+    "jest": "^29.7.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^3.1.4",
+    "sequelize": "^6.37.3",
+    "twilio": "^5.3.1"
+  },
+  "engines": {
+    "node": "18"
+  }
+}
+[debug] [2024-09-22T07:19:50.809Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2024-09-22T07:19:50.812Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-09-22T07:19:50.826Z] Found firebase-functions binary at 'D:\Koleyah\SMT7\digistar\oca backend\node_modules\.bin\firebase-functions'
+[info] Serving at port 8475
+
+[info] Server listening on port: 3000
+
+[debug] [2024-09-22T07:19:52.607Z] Got response from /__/functions.yaml {"endpoints":{"api":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"api"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[debug] [2024-09-22T07:20:02.658Z] Failed to validate key FIREBASE_API_KEY: Error: Key FIREBASE_API_KEY starts with a reserved prefix (X_GOOGLE_ FIREBASE_ EXT_)
+[debug] [2024-09-22T07:20:02.659Z] Failed to validate key FIREBASE_AUTH_DOMAIN: Error: Key FIREBASE_AUTH_DOMAIN starts with a reserved prefix (X_GOOGLE_ FIREBASE_ EXT_)
+[debug] [2024-09-22T07:20:02.659Z] Failed to validate key FIREBASE_PROJECT_ID: Error: Key FIREBASE_PROJECT_ID starts with a reserved prefix (X_GOOGLE_ FIREBASE_ EXT_)
+[debug] [2024-09-22T07:20:02.659Z] Failed to validate key FIREBASE_STORAGE_BUCKET: Error: Key FIREBASE_STORAGE_BUCKET starts with a reserved prefix (X_GOOGLE_ FIREBASE_ EXT_)
+[debug] [2024-09-22T07:20:02.659Z] Failed to validate key FIREBASE_MESSAGING_SENDER_ID: Error: Key FIREBASE_MESSAGING_SENDER_ID starts with a reserved prefix (X_GOOGLE_ FIREBASE_ EXT_)
+[debug] [2024-09-22T07:20:02.659Z] Failed to validate key FIREBASE_APP_ID: Error: Key FIREBASE_APP_ID starts with a reserved prefix (X_GOOGLE_ FIREBASE_ EXT_)
+[error] Error: Failed to load environment variables from .env.:
+[error] - Error Key FIREBASE_API_KEY starts with a reserved prefix (X_GOOGLE_ FIREBASE_ EXT_)
+[error] - Error Key FIREBASE_AUTH_DOMAIN starts with a reserved prefix (X_GOOGLE_ FIREBASE_ EXT_)
+[error] - Error Key FIREBASE_PROJECT_ID starts with a reserved prefix (X_GOOGLE_ FIREBASE_ EXT_)
+[error] - Error Key FIREBASE_STORAGE_BUCKET starts with a reserved prefix (X_GOOGLE_ FIREBASE_ EXT_)
+[error] - Error Key FIREBASE_MESSAGING_SENDER_ID starts with a reserved prefix (X_GOOGLE_ FIREBASE_ EXT_)
+[error] - Error Key FIREBASE_APP_ID starts with a reserved prefix (X_GOOGLE_ FIREBASE_ EXT_)
+[debug] [2024-09-22T07:21:02.513Z] ----------------------------------------------------------------------
+[debug] [2024-09-22T07:21:02.520Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\USER\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions:api
+[debug] [2024-09-22T07:21:02.521Z] CLI Version:   13.18.0
+[debug] [2024-09-22T07:21:02.522Z] Platform:      win32
+[debug] [2024-09-22T07:21:02.522Z] Node Version:  v20.13.1
+[debug] [2024-09-22T07:21:02.523Z] Time:          Sun Sep 22 2024 14:21:02 GMT+0700 (Western Indonesia Time)
+[debug] [2024-09-22T07:21:02.523Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-09-22T07:21:02.673Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-09-22T07:21:02.673Z] > authorizing via signed-in user (mr.azkaov@gmail.com)
+[debug] [2024-09-22T07:21:02.674Z] [iam] checking project oca-project-digistar for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2024-09-22T07:21:02.677Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/oca-project-digistar:testIamPermissions [none]
+[debug] [2024-09-22T07:21:02.678Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/oca-project-digistar:testIamPermissions x-goog-quota-user=projects/oca-project-digistar
+[debug] [2024-09-22T07:21:02.678Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/oca-project-digistar:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2024-09-22T07:21:04.114Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/oca-project-digistar:testIamPermissions 200
+[debug] [2024-09-22T07:21:04.115Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/oca-project-digistar:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2024-09-22T07:21:04.115Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/oca-project-digistar/serviceAccounts/oca-project-digistar@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2024-09-22T07:21:04.116Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/oca-project-digistar/serviceAccounts/oca-project-digistar@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2024-09-22T07:21:05.530Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/oca-project-digistar/serviceAccounts/oca-project-digistar@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2024-09-22T07:21:05.531Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/oca-project-digistar/serviceAccounts/oca-project-digistar@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'oca-project-digistar'...
+[info] 
+[info] i  deploying functions 
+[debug] [2024-09-22T07:21:05.538Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/oca-project-digistar [none]
+[debug] [2024-09-22T07:21:06.229Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/oca-project-digistar 200
+[debug] [2024-09-22T07:21:06.230Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/oca-project-digistar {"projectId":"oca-project-digistar","projectNumber":"49166938496","displayName":"oca-project-digistar","name":"projects/oca-project-digistar","resources":{"hostingSite":"oca-project-digistar"},"state":"ACTIVE","etag":"1_3e691dc4-c8d6-4d18-89f5-1446df18aedb"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2024-09-22T07:21:06.235Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/cloudfunctions.googleapis.com [none]
+[debug] [2024-09-22T07:21:06.235Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/oca-project-digistar
+[debug] [2024-09-22T07:21:06.238Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/runtimeconfig.googleapis.com [none]
+[debug] [2024-09-22T07:21:06.238Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/oca-project-digistar
+[debug] [2024-09-22T07:21:06.240Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/cloudbuild.googleapis.com [none]
+[debug] [2024-09-22T07:21:06.240Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/cloudbuild.googleapis.com x-goog-quota-user=projects/oca-project-digistar
+[debug] [2024-09-22T07:21:06.243Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/artifactregistry.googleapis.com [none]
+[debug] [2024-09-22T07:21:06.243Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/artifactregistry.googleapis.com x-goog-quota-user=projects/oca-project-digistar
+[debug] [2024-09-22T07:21:07.660Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/runtimeconfig.googleapis.com 200
+[debug] [2024-09-22T07:21:07.660Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2024-09-22T07:21:07.695Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/cloudfunctions.googleapis.com 200
+[debug] [2024-09-22T07:21:07.695Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/cloudfunctions.googleapis.com [omitted]
+[info] +  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2024-09-22T07:21:07.994Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/artifactregistry.googleapis.com 200
+[debug] [2024-09-22T07:21:07.995Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/artifactregistry.googleapis.com [omitted]
+[info] +  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2024-09-22T07:21:07.997Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/cloudbuild.googleapis.com 200
+[debug] [2024-09-22T07:21:07.997Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/cloudbuild.googleapis.com [omitted]
+[info] +  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2024-09-22T07:21:07.998Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/oca-project-digistar/adminSdkConfig [none]
+[debug] [2024-09-22T07:21:08.652Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/oca-project-digistar/adminSdkConfig 200
+[debug] [2024-09-22T07:21:08.653Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/oca-project-digistar/adminSdkConfig {"projectId":"oca-project-digistar","storageBucket":"oca-project-digistar.appspot.com"}
+[debug] [2024-09-22T07:21:08.654Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/oca-project-digistar/configs [none]
+[debug] [2024-09-22T07:21:09.015Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/oca-project-digistar/configs 200
+[debug] [2024-09-22T07:21:09.015Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/oca-project-digistar/configs {}
+[debug] [2024-09-22T07:21:09.018Z] Validating nodejs source
+[debug] [2024-09-22T07:21:10.924Z] > [functions] package.json contents: {
+  "name": "oca-backend",
+  "version": "1.0.0",
+  "description": "This is a repository for OCA Team 36 backend APIs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "deploy": "firebase deploy --only functions:api"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@sendgrid/mail": "^8.1.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "firebase": "^10.13.2",
+    "firebase-admin": "^12.5.0",
+    "firebase-functions": "^6.0.1",
+    "jest": "^29.7.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^3.1.4",
+    "sequelize": "^6.37.3",
+    "twilio": "^5.3.1"
+  },
+  "engines": {
+    "node": "18"
+  }
+}
+[debug] [2024-09-22T07:21:10.924Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2024-09-22T07:21:10.928Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-09-22T07:21:10.943Z] Found firebase-functions binary at 'D:\Koleyah\SMT7\digistar\oca backend\node_modules\.bin\firebase-functions'
+[info] Serving at port 8100
+
+[error] node:events:497
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::8100
+    at Server.setupListenHandle [as _listen2] (node:net:1898:16)
+    at listenInCluster (node:net:1946:12)
+    at Server.listen (node:net:2044:7)
+    at Function.listen (D:\Koleyah\SMT7\digistar\oca backend\node_modules\express\lib\application.js:635:24)
+    at Object.<anonymous> (D:\Koleyah\SMT7\digistar\oca backend\index.js:22:5)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10)
+    at Module.load (node:internal/modules/cjs/loader:1208:32)
+    at Module._load (node:internal/modules/cjs/loader:1024:12)
+    at Module.require (node:internal/modules/cjs/loader:1233:19)
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (node:net:1925:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '::',
+  port: 8100
+}
+
+Node.js v20.13.1
+
+[debug] [2024-09-22T07:21:12.714Z] Failed to call quitquitquit. This often means the server failed to start request to http://localhost:8100/__/quitquitquit failed, reason:  {"message":"request to http://localhost:8100/__/quitquitquit failed, reason: ","type":"system","errno":"ECONNREFUSED","code":"ECONNREFUSED"}
+[debug] [2024-09-22T07:21:13.160Z] FetchError: request to http://127.0.0.1:8100/__/functions.yaml failed, reason: read ECONNRESET
+    at ClientRequest.<anonymous> (C:\Users\USER\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\node-fetch\lib\index.js:1501:11)
+    at ClientRequest.emit (node:events:519:28)
+    at ClientRequest.emit (node:domain:488:12)
+    at Socket.socketErrorListener (node:_http_client:500:9)
+    at Socket.emit (node:events:519:28)
+    at Socket.emit (node:domain:488:12)
+    at emitErrorNT (node:internal/streams/destroy:169:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:128:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2024-09-22T13:24:12.733Z] ----------------------------------------------------------------------
+[debug] [2024-09-22T13:24:12.735Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\USER\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions:api
+[debug] [2024-09-22T13:24:12.736Z] CLI Version:   13.18.0
+[debug] [2024-09-22T13:24:12.736Z] Platform:      win32
+[debug] [2024-09-22T13:24:12.736Z] Node Version:  v20.13.1
+[debug] [2024-09-22T13:24:12.736Z] Time:          Sun Sep 22 2024 20:24:12 GMT+0700 (Western Indonesia Time)
+[debug] [2024-09-22T13:24:12.736Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-09-22T13:24:12.798Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-09-22T13:24:12.799Z] > authorizing via signed-in user (mr.azkaov@gmail.com)
+[debug] [2024-09-22T13:24:12.799Z] [iam] checking project oca-project-digistar for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2024-09-22T13:24:12.800Z] > refreshing access token with scopes: []
+[debug] [2024-09-22T13:24:12.801Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-09-22T13:24:12.801Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-09-22T13:24:13.011Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2024-09-22T13:24:13.012Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-09-22T13:24:13.018Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/oca-project-digistar:testIamPermissions [none]
+[debug] [2024-09-22T13:24:13.018Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/oca-project-digistar:testIamPermissions x-goog-quota-user=projects/oca-project-digistar
+[debug] [2024-09-22T13:24:13.019Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/oca-project-digistar:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2024-09-22T13:24:14.453Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/oca-project-digistar:testIamPermissions 200
+[debug] [2024-09-22T13:24:14.453Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/oca-project-digistar:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2024-09-22T13:24:14.453Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/oca-project-digistar/serviceAccounts/oca-project-digistar@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2024-09-22T13:24:14.453Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/oca-project-digistar/serviceAccounts/oca-project-digistar@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2024-09-22T13:24:15.942Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/oca-project-digistar/serviceAccounts/oca-project-digistar@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2024-09-22T13:24:15.943Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/oca-project-digistar/serviceAccounts/oca-project-digistar@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'oca-project-digistar'...
+[info] 
+[info] i  deploying functions 
+[debug] [2024-09-22T13:24:15.947Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/oca-project-digistar [none]
+[debug] [2024-09-22T13:24:16.765Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/oca-project-digistar 200
+[debug] [2024-09-22T13:24:16.765Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/oca-project-digistar {"projectId":"oca-project-digistar","projectNumber":"49166938496","displayName":"oca-project-digistar","name":"projects/oca-project-digistar","resources":{"hostingSite":"oca-project-digistar"},"state":"ACTIVE","etag":"1_3e691dc4-c8d6-4d18-89f5-1446df18aedb"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2024-09-22T13:24:16.768Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/cloudfunctions.googleapis.com [none]
+[debug] [2024-09-22T13:24:16.768Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/oca-project-digistar
+[debug] [2024-09-22T13:24:16.769Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/runtimeconfig.googleapis.com [none]
+[debug] [2024-09-22T13:24:16.769Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/oca-project-digistar
+[debug] [2024-09-22T13:24:16.770Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/cloudbuild.googleapis.com [none]
+[debug] [2024-09-22T13:24:16.770Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/cloudbuild.googleapis.com x-goog-quota-user=projects/oca-project-digistar
+[debug] [2024-09-22T13:24:16.771Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/artifactregistry.googleapis.com [none]
+[debug] [2024-09-22T13:24:16.771Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/artifactregistry.googleapis.com x-goog-quota-user=projects/oca-project-digistar
+[debug] [2024-09-22T13:24:18.250Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/cloudbuild.googleapis.com 200
+[debug] [2024-09-22T13:24:18.251Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/cloudbuild.googleapis.com [omitted]
+[info] +  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2024-09-22T13:24:18.282Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/cloudfunctions.googleapis.com 200
+[debug] [2024-09-22T13:24:18.282Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/cloudfunctions.googleapis.com [omitted]
+[info] +  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2024-09-22T13:24:18.305Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/artifactregistry.googleapis.com 200
+[debug] [2024-09-22T13:24:18.305Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/artifactregistry.googleapis.com [omitted]
+[info] +  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2024-09-22T13:24:18.498Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/runtimeconfig.googleapis.com 200
+[debug] [2024-09-22T13:24:18.498Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/oca-project-digistar/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2024-09-22T13:24:18.498Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/oca-project-digistar/adminSdkConfig [none]
+[debug] [2024-09-22T13:24:18.762Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/oca-project-digistar/adminSdkConfig 200
+[debug] [2024-09-22T13:24:18.762Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/oca-project-digistar/adminSdkConfig {"projectId":"oca-project-digistar","storageBucket":"oca-project-digistar.appspot.com"}
+[debug] [2024-09-22T13:24:18.763Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/oca-project-digistar/configs [none]
+[debug] [2024-09-22T13:24:19.285Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/oca-project-digistar/configs 200
+[debug] [2024-09-22T13:24:19.285Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/oca-project-digistar/configs {}
+[debug] [2024-09-22T13:24:19.287Z] Validating nodejs source
+[debug] [2024-09-22T13:24:20.356Z] > [functions] package.json contents: {
+  "name": "oca-backend",
+  "version": "1.0.0",
+  "description": "This is a repository for OCA Team 36 backend APIs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "deploy": "firebase deploy --only functions:api"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@sendgrid/mail": "^8.1.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "firebase": "^10.13.2",
+    "firebase-admin": "^12.5.0",
+    "firebase-functions": "^6.0.1",
+    "jest": "^29.7.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^3.1.4",
+    "sequelize": "^6.37.3",
+    "twilio": "^5.3.1"
+  },
+  "engines": {
+    "node": "18"
+  }
+}
+[debug] [2024-09-22T13:24:20.356Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2024-09-22T13:24:20.357Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-09-22T13:24:20.366Z] Found firebase-functions binary at 'D:\Koleyah\SMT7\digistar\oca backend\node_modules\.bin\firebase-functions'
+[info] Serving at port 8895
+
+[error] node:events:497
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::8895
+    at Server.setupListenHandle [as _listen2] (node:net:1898:16)
+    at listenInCluster (node:net:1946:12)
+    at Server.listen (node:net:2044:7)
+    at Function.listen (D:\Koleyah\SMT7\digistar\oca backend\node_modules\express\lib\application.js:635:24)
+    at Object.<anonymous> (D:\Koleyah\SMT7\digistar\oca backend\index.js:22:5)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10)
+    at Module.load (node:internal/modules/cjs/loader:1208:32)
+    at Module._load (node:internal/modules/cjs/loader:1024:12)
+    at Module.require (node:internal/modules/cjs/loader:1233:19)
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (node:net:1925:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '::',
+  port: 8895
+}
+
+Node.js v20.13.1
+
+[debug] [2024-09-22T13:24:21.611Z] Failed to call quitquitquit. This often means the server failed to start request to http://localhost:8895/__/quitquitquit failed, reason:  {"message":"request to http://localhost:8895/__/quitquitquit failed, reason: ","type":"system","errno":"ECONNREFUSED","code":"ECONNREFUSED"}
+[debug] [2024-09-22T13:24:21.749Z] FetchError: request to http://127.0.0.1:8895/__/functions.yaml failed, reason: read ECONNRESET
+    at ClientRequest.<anonymous> (C:\Users\USER\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\node-fetch\lib\index.js:1501:11)
+    at ClientRequest.emit (node:events:519:28)
+    at ClientRequest.emit (node:domain:488:12)
+    at Socket.socketErrorListener (node:_http_client:500:9)
+    at Socket.emit (node:events:519:28)
+    at Socket.emit (node:domain:488:12)
+    at emitErrorNT (node:internal/streams/destroy:169:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:128:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+[error] 
+[error] Error: An unexpected error has occurred.
